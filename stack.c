@@ -1,53 +1,68 @@
 #include<stdio.h>
+#include<stdlib.h>
 #define MAXSIZE 100
-int stack[MAXSIZE],top=-1
-void push(int ele)
+int stack[size],top=-1;
+void push(int[],int);
+void display(int[]);
+void pop(int[]);
+void push(int stack[],int item)
 {
-  if(top == MAXSIZE-1)
+  if(top == size-1)
   {
 printf("Stack is full");
-    exit(0);
+    return;
   }
-  stack[++top]=ele;
+  top++;
+  stack[top]=item;
 }
-int pop()
+int pop(int stack[])
 {
+  int ditem;
 if(top==-1)
 {
 printf("Stack is empty");
-  exit (0);
 }
-ele=stack[top--];
-  return ele;
+ditem=stack[top];
+  top--;
+  printf("Item is deleted %d",ditem);
 }
-void display()
+void display(int stack[])
 {
   int i;
-  for(i=0;i<=top;i++)
-    printf("%d",stack[i]);
-  if(top==-1)
+   if(top==-1)
+   {
     printf("Stack is empty");
+     return;
+   }
+  printf("Stack elements are:");
+  for(i=top;i>=0;i--)
+  {
+    printf("%d",stack[i]);
+}
 }
 void main()
 {
-  int ch;
-  printf("\n1.Push\n2.Pop\n3.Display");
+  int ch,item;
+  while(1)
+  {
+  printf("\n1.Push\n2.Pop\n3.Display\n4.Exit\n");
   printf("Enter your choice");
   scanf("%d",&ch);
-  while(True)
-  {
     switch(ch)
     {
       case 1: printf(Enter the element to be inserted");
-                     scanf("%d",&ele);
-                     push(ele);
+                     scanf("%d",&item);
+                     push(stack,item);
                      break;
-                     case 2:pop();
+                     case 2:pop(stack);
                      break;
-                     case 3:display();
+                     case 3:display(stack);
+                     break;
+                     case 4:exit(0);
                      break;
                      default:printf("Wrong Choice");
-                     exit(0);
+                     break;
+                     }
                      }
                      }
                     printf("Do you want to continue Y/N");
