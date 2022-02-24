@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
+<<<<<<< HEAD
 #define MAXSIZE 100
+=======
+#define size 100
+>>>>>>> ms
 int stack[size],top=-1;
 void push(int[],int);
 void display(int[]);
@@ -15,7 +19,11 @@ printf("Stack is full");
   top++;
   stack[top]=item;
 }
+<<<<<<< HEAD
 int pop(int stack[])
+=======
+void pop(int stack[])
+>>>>>>> ms
 {
   int ditem;
 if(top==-1)
@@ -50,7 +58,11 @@ void main()
   scanf("%d",&ch);
     switch(ch)
     {
+<<<<<<< HEAD
       case 1: printf(Enter the element to be inserted");
+=======
+      case 1: printf("Enter the element to be inserted");
+>>>>>>> ms
                      scanf("%d",&item);
                      push(stack,item);
                      break;
@@ -65,8 +77,15 @@ void main()
                      }
                      }
                      }
+<<<<<<< HEAD
                     printf("Do you want to continue Y/N");
                      scanf("%d",&yn);
                      if(yn=='Y')
                      {
+=======
+                    //printf("Do you want to continue Y/N");
+                     //scanf("%d",&yn);
+                     //if(yn=='Y')
+                     //{
+>>>>>>> ms
                        
