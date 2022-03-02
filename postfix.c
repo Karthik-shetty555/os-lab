@@ -1,30 +1,19 @@
 #include<stdio.h>
-#include<math.h>
 #include<ctype.h>
+#include<stdlib.h>
 char stack[30],postfix[30];
 int top=-1;
 void push(char);
 char pop();
-void Eval_postfix();
-void main()
-{
-char v;
-printf("Enter expression");
-scanf("%s",postfix);
-Eval_postfix();
-printf("\nThe Postfix Expression");
-puts
-}
+int Eval_postfix();
 int Eval_postfix()
 {
 int i=0,op1,op2;
 char symbol;
-while(symbol=postfix[i+1]!='/0')
+while((symbol=postfix[i+1])!='/0')
 {
-if(symbol==operand)
-{
+if(isalnum(symbol))
 push(symbol-'0');
-}
 else
 {
 op2=pop();
@@ -38,18 +27,19 @@ break;
 case '*':push(op1*op2);
 break;
 case '/':if(op2!=0)
-         {push(op1/op2);
+         {
+         push(op1/op2);
          break;
          }else
          {
-         exit(0);
+         printf("out loop");
+         return 0;
 }
-//case '^':push(op1/op2);
-//break;
+case '^':push(op1^op2);
+break;
 }
-}
+}}
 return(pop());
-}
 }
 void push(char symbol)
 {
@@ -60,4 +50,12 @@ char pop()
 char symbol;
 symbol=stack[top--];
 return symbol;
+}
+void main()
+{
+int val;
+printf("Enter Postfix expression");
+scanf("%s",postfix);
+val=Eval_postfix();
+printf("\nEvaluated expression:%d\n",val);
 }
